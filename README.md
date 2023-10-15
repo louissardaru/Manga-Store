@@ -3,6 +3,8 @@ Manga Store Microservices
 
 *Work in progress
 
+Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker
+
 *Manga Service completed-------------------------------*I will continue with Order Service
 
 <img width="635" alt="Docker Container" src="https://github.com/louissardaru/Manga-Store/assets/119102199/410790c9-09cd-439a-8414-2d70b29cf9f2">
