@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class OrderService {
 	
 	private final OrderRepository orderRepository;
-	private final WebClient webClient;
+	private final WebClient.Builder webClientBuilder;
 	
 	public void placeOrder(OrderRequest orderRequest) {
 		Order order = new Order();
@@ -41,8 +41,8 @@ public class OrderService {
 				.toList();
 		
 		//call InventoryService to see if the manga volume is in stock
-		InventoryResponse[] inventoryResponseList = webClient.get()
-		         .uri("http://localhost:8082/api/inventory", 
+		InventoryResponse[] inventoryResponseList = webClientBuilder.build().get()
+		         .uri("http://inventory-service/api/inventory", 
 		        		 uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
 		         .retrieve()
 		         .bodyToMono(InventoryResponse[].class)
