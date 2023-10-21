@@ -19,7 +19,7 @@ Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MySQL, Spring
 
 *API Gateway with Spring Cloud Gateway
 
-*Securing the microservices architecture through api gateway
+*I will continue with Securing the microservices architecture through api gateway
 
 <img width="705" alt="Docker Container" src="https://github.com/louissardaru/Manga-Store/assets/119102199/410790c9-09cd-439a-8414-2d70b29cf9f2">
 <img width="362" alt="POST Manga" src="https://github.com/louissardaru/Manga-Store/assets/119102199/31fc88d7-3192-4f0e-a881-5697e0d105fc">
