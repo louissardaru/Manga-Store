@@ -14,6 +14,8 @@ import com.project.OrderService.model.Order;
 import com.project.OrderService.model.OrderLineItems;
 import com.project.OrderService.repository.OrderRepository;
 
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -23,8 +25,9 @@ public class OrderService {
 	
 	private final OrderRepository orderRepository;
 	private final WebClient.Builder webClientBuilder;
+	private final ObservationRegistry observationRegistry;
 	
-	public void placeOrder(OrderRequest orderRequest) {
+	public String placeOrder(OrderRequest orderRequest) {
 		Order order = new Order();
 		order.setOrderNumber(UUID.randomUUID().toString());
 		
@@ -41,6 +44,10 @@ public class OrderService {
 				.toList();
 		
 		//call InventoryService to see if the manga volume is in stock
+		Observation inventoryServiceObservation = Observation.createNotStarted("inventory-service-lookup",
+                this.observationRegistry);
+        inventoryServiceObservation.lowCardinalityKeyValue("call", "inventory-service");
+        return inventoryServiceObservation.observe(() -> {
 		InventoryResponse[] inventoryResponseList = webClientBuilder.build().get()
 		         .uri("http://inventory-service/api/inventory", 
 		        		 uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
@@ -52,9 +59,11 @@ public class OrderService {
 		
 		if(checkTheStock) {
 			orderRepository.save(order);
+			return "The order was placed successfully.";
 		}else {
 			throw new IllegalArgumentException("Sorry! Manga volume is not in stock.");
-		}		
+		}
+        });
 	}
 	
 	private OrderLineItems mapToDto(OrderLineItemsDto orderLineItemsDto) {
