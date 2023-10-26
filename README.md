@@ -47,7 +47,10 @@ Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compa
 <img width="348" alt="Zipkin" src="https://github.com/louissardaru/Manga-Store/assets/119102199/48854812-676d-4293-aafc-c8c016dfe80a">
 <img width="348" alt="Zipkin into" src="https://github.com/louissardaru/Manga-Store/assets/119102199/903db9b4-5312-4311-a0c1-18dfee5a4fc8">
 
-*I will continue with asynchronous communication with Apache Kafka
+*Notification Service with Apache Kafka and interaction with Order Service
+
+<img width="348" alt="docker" src="https://github.com/louissardaru/Manga-Store/assets/119102199/859ad705-431f-4cfb-9eaa-0e69ba9ec6c4">
+<img width="348" alt="Notification service" src="https://github.com/louissardaru/Manga-Store/assets/119102199/8b6509fb-7135-493a-a57b-53669063c399">
 
 
 
