@@ -3,7 +3,7 @@ Manga Store Microservices
 
 *Work in progress
 
-Skills used for now: Java, Spring Framework, Spring Boot, MongoDB,MongoDB Compass, MySQL,MySQL Workbench, Spring Cloud,Spring MVC, Netflix Eureka, Spring Cloud Gateway, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker, Keycloak
+Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compass, MySQL, MySQL Workbench, Spring Cloud(Circuit Breaker,Connectors,Gateway,Netflix,Security,Sleuth,Config), Spring MVC, Netflix Eureka, Spring Cloud Gateway, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker, Keycloak, Zipkin.
 
 *Manga Service completed - MongoDB
 
@@ -42,8 +42,12 @@ Skills used for now: Java, Spring Framework, Spring Boot, MongoDB,MongoDB Compas
 <img width="648" alt="KEYCLOAK" src="https://github.com/louissardaru/Manga-Store/assets/119102199/275b201c-f4af-4129-a454-47bb4cca410d">
 <img width="348" alt="KEYCLOAK and Postman" src="https://github.com/louissardaru/Manga-Store/assets/119102199/620e0ab5-d017-4d5b-bb7a-317165257de2">
 
-*I will continue with circuit breaker implementation
+*Circuit breaker and Distributed tracing implementation completed
 
+<img width="348" alt="Zipkin" src="https://github.com/louissardaru/Manga-Store/assets/119102199/48854812-676d-4293-aafc-c8c016dfe80a">
+<img width="348" alt="Zipkin into" src="https://github.com/louissardaru/Manga-Store/assets/119102199/903db9b4-5312-4311-a0c1-18dfee5a4fc8">
+
+*I will continue with asynchronous communication with Apache Kafka
 
 
 
