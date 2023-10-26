@@ -3,6 +3,8 @@ package com.project.OrderService.service;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -10,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.project.OrderService.dto.InventoryResponse;
 import com.project.OrderService.dto.OrderLineItemsDto;
 import com.project.OrderService.dto.OrderRequest;
+import com.project.OrderService.event.OrderPlacedEvent;
 import com.project.OrderService.model.Order;
 import com.project.OrderService.model.OrderLineItems;
 import com.project.OrderService.repository.OrderRepository;
@@ -17,15 +20,18 @@ import com.project.OrderService.repository.OrderRepository;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class OrderService {
 	
 	private final OrderRepository orderRepository;
 	private final WebClient.Builder webClientBuilder;
 	private final ObservationRegistry observationRegistry;
+	private final ApplicationEventPublisher applicationEventPublisher;
 	
 	public String placeOrder(OrderRequest orderRequest) {
 		Order order = new Order();
@@ -59,6 +65,7 @@ public class OrderService {
 		
 		if(checkTheStock) {
 			orderRepository.save(order);
+			applicationEventPublisher.publishEvent(new OrderPlacedEvent(this, order.getOrderNumber()));
 			return "The order was placed successfully.";
 		}else {
 			throw new IllegalArgumentException("Sorry! Manga volume is not in stock.");
