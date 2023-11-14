@@ -1,11 +1,25 @@
-# Manga-Store
-Manga Store Microservices
+# Online Manga Shopping Application Backend
 
-*Work in progress
+Skills used: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compass, MySQL, MySQL Workbench, Spring Cloud(Circuit Breaker,Connectors,Gateway,Netflix,Security,Sleuth,Config), Spring MVC, Netflix Eureka, Spring Cloud Gateway, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker, Keycloak, Zipkin, Apache Kafka.
 
-*I will continue to Dockerize all the services and migrate to Kuberantes
+This application contains:
+-Manga Service - Manga Catalog, create and view Manga products - mongoDB database.
+-Order Service - the service that helps with the manga order - mySQL database.
+-Inventory - Service - can check if the manga product is in stock - mySql database to store all the inventory information.
+-Eureka Discovery Server - is storing all the information about the services, helps with the comunication between services.
+-API Gateway - acts like a gateway to route the requests from users to the coresponding services, this way the user doesn't need to have 
+access to the host name or the IP adress of services, just to the Gateway one.
+-Notification Service - after the order is placed, we can send notifications using Kafka - does not have a database but it is responsible to send notifications.
 
-Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compass, MySQL, MySQL Workbench, Spring Cloud(Circuit Breaker,Connectors,Gateway,Netflix,Security,Sleuth,Config), Spring MVC, Netflix Eureka, Spring Cloud Gateway, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker, Keycloak, Zipkin, Apache Kafka.
+To be able to access API Gateway resulting in accessing all the services, you need to pass the authorization server called keyclock.
+When an order is placed, we will first check if the inventory is available or not by making a synchronous comunication. 
+Once the order is placed successfully, we will send a notification using an asynchronous communication between order service and notification service.
+This application also uses Zipkin to do the distributed tracing. It help us trace the request from start to finish so that if a request is failed 
+at any point of time, we can understand where and why it failled.
+All the services, API Gateway, Eureka Discovery Server, Keycloack, Zookeeper, Broker, Zipkin, databases are dockerized and can be run with docker compose.
+
+Next step that can be done with this application is to create a frontend.
+
 
 *Manga Service completed - MongoDB
 
@@ -53,6 +67,13 @@ Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compa
 
 <img width="348" alt="docker" src="https://github.com/louissardaru/Manga-Store/assets/119102199/859ad705-431f-4cfb-9eaa-0e69ba9ec6c4">
 <img width="348" alt="Notification service" src="https://github.com/louissardaru/Manga-Store/assets/119102199/8b6509fb-7135-493a-a57b-53669063c399">
+
+*Dockerizing the application
+
+<img width="348" alt="doker_site" src="https://github.com/louissardaru/Manga-Store/assets/119102199/1ea87e70-5309-4685-a233-d45f6637afb6">
+<img width="398" alt="docker-desktop" src="https://github.com/louissardaru/Manga-Store/assets/119102199/74cc351f-35d3-4f05-b5fd-e2047d7d5eb4">
+
+
 
 
 
