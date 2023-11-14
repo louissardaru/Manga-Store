@@ -3,6 +3,8 @@ Manga Store Microservices
 
 *Work in progress
 
+*I will continue to Dockerize all the services and migrate to Kuberantes
+
 Skills used for now: Java, Spring Framework, Spring Boot, MongoDB, MongoDB Compass, MySQL, MySQL Workbench, Spring Cloud(Circuit Breaker,Connectors,Gateway,Netflix,Security,Sleuth,Config), Spring MVC, Netflix Eureka, Spring Cloud Gateway, Lombok library, Postman, Testcontainers library, Spring Tool Suite 4, Maven, JUnit 5, Docker, Keycloak, Zipkin, Apache Kafka.
 
 *Manga Service completed - MongoDB
