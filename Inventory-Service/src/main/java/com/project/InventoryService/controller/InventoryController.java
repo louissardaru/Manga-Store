@@ -11,6 +11,7 @@ import com.project.InventoryService.dto.InventoryResponse;
 import com.project.InventoryService.service.InventoryService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.springframework.http.HttpStatus;
 @RestController
 @RequestMapping("/api/inventory")
 @RequiredArgsConstructor
+@Slf4j
 public class InventoryController {
 	
 	private final InventoryService inventoryService;
@@ -26,6 +28,7 @@ public class InventoryController {
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode) {
+		log.info("Received inventory check request for skuCode: {}", skuCode);
 		return inventoryService.isInStock(skuCode);
 	}
 }

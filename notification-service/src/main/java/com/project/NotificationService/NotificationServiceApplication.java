@@ -4,8 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.KafkaListener;
 
-import com.project.NotificationService.event.OrderPlacedEvent;
-
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.tracing.Tracer;
@@ -31,7 +29,7 @@ public class NotificationServiceApplication {
             log.info("TraceId- {}, Received Notification for Order - {}", this.tracer.currentSpan().context().traceId(),
                     orderPlacedEvent.getOrderNumber());
         });
-    	log.info("Received Notification for Order - {}", orderPlacedEvent.getOrderNumber());
+    	
   }
 }
 

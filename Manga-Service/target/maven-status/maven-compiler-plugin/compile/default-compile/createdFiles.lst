@@ -1,0 +1,11 @@
+com\project\MangaService\dto\MangaRequest.class
+com\project\MangaService\dto\MangaResponse.class
+com\project\MangaService\service\MangaService.class
+com\project\MangaService\MangaServiceApplication.class
+com\project\MangaService\model\Manga.class
+com\project\MangaService\util\DataLoader.class
+com\project\MangaService\dto\MangaResponse$MangaResponseBuilder.class
+com\project\MangaService\controller\MangaController.class
+com\project\MangaService\model\Manga$MangaBuilder.class
+com\project\MangaService\dto\MangaRequest$MangaRequestBuilder.class
+com\project\MangaService\repository\MangaRepository.class

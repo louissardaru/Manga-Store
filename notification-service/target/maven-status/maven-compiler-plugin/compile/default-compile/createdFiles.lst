@@ -1,0 +1,3 @@
+com\project\NotificationService\NotificationServiceApplication.class
+com\project\NotificationService\ManualConfiguration.class
+com\project\NotificationService\OrderPlacedEvent.class

@@ -1,4 +1,4 @@
-package com.project.NotificationService.event;
+package com.project.NotificationService;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
